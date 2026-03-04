@@ -33,6 +33,8 @@ services:
         sync: false
       - key: DB_SSLMODE
         value: require
+      - key: RUN_MIGRATIONS_ON_BOOT
+        value: "false"
       - key: SESSION_DRIVER
         value: database
       - key: CACHE_STORE

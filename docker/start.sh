@@ -24,6 +24,9 @@ fi
 
 php artisan config:cache
 php artisan view:cache
-php artisan migrate --force
+
+if [ "${RUN_MIGRATIONS_ON_BOOT:-false}" = "true" ]; then
+    php artisan migrate --force
+fi
 
 exec /usr/bin/supervisord -c /etc/supervisord.conf

@@ -16,7 +16,6 @@ envsubst '${PORT}' < /etc/nginx/templates/default.conf.template > /etc/nginx/con
 cd /var/www
 
 php artisan config:cache
-php artisan route:cache
 php artisan view:cache
 php artisan migrate --force
 

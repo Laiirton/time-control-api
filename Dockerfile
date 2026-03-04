@@ -30,7 +30,7 @@ RUN mkdir -p bootstrap/cache storage/framework/cache/data storage/framework/sess
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-RUN npm ci && npm run build
+RUN npm install && npm run build
 
 RUN echo "clear_env = no" >> /usr/local/etc/php-fpm.d/www.conf
 

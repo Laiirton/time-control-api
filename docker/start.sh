@@ -10,8 +10,7 @@ if [ -z "$APP_KEY" ]; then
     export APP_KEY
 fi
 
-mkdir -p /etc/nginx/conf.d
-envsubst '${PORT}' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf
+envsubst '${PORT}' < /etc/nginx/templates/nginx.conf.template > /etc/nginx/nginx.conf
 
 cd /var/www
 

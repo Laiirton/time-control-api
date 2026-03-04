@@ -34,7 +34,7 @@ RUN npm install && npm run build
 
 RUN echo "clear_env = no" >> /usr/local/etc/php-fpm.d/www.conf
 
-COPY docker/nginx.conf /etc/nginx/templates/default.conf.template
+COPY docker/nginx.conf /etc/nginx/templates/nginx.conf.template
 COPY docker/supervisord.conf /etc/supervisord.conf
 COPY docker/start.sh /start.sh
 RUN chmod +x /start.sh

@@ -23,12 +23,14 @@ WORKDIR /var/www
 
 COPY . .
 
+RUN mkdir -p bootstrap/cache storage/framework/cache/data storage/framework/sessions \
+        storage/framework/views storage/logs \
+    && chmod -R 775 bootstrap/cache storage \
+    && chown -R www-data:www-data bootstrap/cache storage
+
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 RUN npm ci && npm run build
-
-RUN chown -R www-data:www-data storage bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
 
 RUN echo "clear_env = no" >> /usr/local/etc/php-fpm.d/www.conf
 
